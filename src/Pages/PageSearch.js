@@ -1,17 +1,20 @@
 import React from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
 
-import Dropdown from '../Components/Dropdown'
-import SearchBox from "../Components/SearchBox";
+import SearchBox from "../Components/SearchBar";
 import CourseBox from "../Components/CourseBox";
 
 class PageSearch extends React.Component {
     render () {
         return (
-            <div>
-                <Dropdown/>
-                <SearchBox/>
-                <CourseBox/>
-            </div>
+            <Grid>
+                <Row>
+                    <SearchBox/>
+                </Row>
+                <Row>
+                    <CourseBox/>
+                </Row>
+            </Grid>
         )
     }
 }

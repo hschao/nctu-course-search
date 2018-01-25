@@ -60,7 +60,7 @@ class CourseBox extends React.Component {
         return (
             <div>
                 {fakeData.map(course =>
-                    <CourseItem info={course}/>
+                    <CourseItem key={course.id} info={course}/>
                 )}
             </div>
         )
