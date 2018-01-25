@@ -1,12 +1,12 @@
 import React from 'react'
 import { Col, Button, FormControl, DropdownButton, MenuItem } from 'react-bootstrap'
 
-class SearchBox extends React.Component {
+class SearchBar extends React.Component {
     render () {
         return (
             <div>
                 <div className='pull-left'>
-                    <DropdownButton title='搜尋學期' id='dropdown-semester'>
+                    <DropdownButton title='搜尋學期' id='dropdown-semester' onSelect={this.props.onSemChange}>
                         <MenuItem eventKey=''>所有學期</MenuItem>
                         <MenuItem eventKey='23'>106下</MenuItem>
                         <MenuItem eventKey='22'>106上</MenuItem>
@@ -34,12 +34,14 @@ class SearchBox extends React.Component {
                     </DropdownButton>
                 </div>
                 <Col xs={9}>
-                    <FormControl type='text' placeholder='輸入'/>
+                    <FormControl type='text' placeholder='輸入 課名/老師/向度/時間' onChange={(e) => {
+                        this.props.onWordChange(e.target.value)
+                    }}/>
                 </Col>
-                <Button className='col-xs-1'>搜尋</Button>
+                <Button className='col-xs-1' onClick={this.props.onSearch}>搜尋</Button>
             </div>
         )
     }
 }
 
-export default SearchBox
+export default SearchBar
