@@ -1,9 +1,14 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 
 import PageSearch from './Pages/PageSearch'
 
-const Home = () => <h1>Home</h1>
+const Home = () => (
+    <div>
+        <h1>Home</h1>
+        <Link to={`${process.env.PUBLIC_URL}/search`}>Search</Link>
+    </div>
+)
 const NotFound = () => <h1>404 Not Found</h1>
 
 const App = () => (
@@ -11,8 +16,8 @@ const App = () => (
 
         {/* page routes */}
         <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/search' component={PageSearch} />
+            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+            <Route path={`${process.env.PUBLIC_URL}/search`} component={PageSearch} />
 
             {/* 404 not found */}
             <Route component={NotFound} />
