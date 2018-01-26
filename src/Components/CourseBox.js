@@ -1,15 +1,17 @@
 import React from 'react'
 import CourseItem from "./CourseItem";
 
+import './CourseBox.css'
+
 class CourseBox extends React.Component {
     render () {
         return (
-            <div>
+            <div className='course-box'>
                 {this.props.courseData.length > 0 ?
                     this.props.courseData.map(course =>
                         <CourseItem key={course.id} info={course}/>
                     ) :
-                    <span>查無結果</span>
+                    <span>{ this.props.msg }</span>
                 }
             </div>
         )
